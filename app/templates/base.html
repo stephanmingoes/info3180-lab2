@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Flask Starter App</title>
 
     <!-- Bootstrap -->
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='css/styles.css') }}"
+      rel="stylesheet"
+    />
 
     <!-- Application CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/app.css') }}"
+    />
     {% block css %} {% endblock%}
   </head>
   <body>
-    <header>
-        {% include "header.html" %}
-    </header>
+    <header>{% include "header.html" %}</header>
     <main>
-        <div class="container">
-            {% block main %}{% endblock %}
-        </div>
+      <div class="container">{% block main %}{% endblock %}</div>
     </main>
     <footer>
-        <div class="container">
-            {% include "footer.html" %}
-        </div>
+      <div class="container">{% include "footer.html" %}</div>
     </footer>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->

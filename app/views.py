@@ -1,6 +1,10 @@
 from app import app
 from flask import render_template, request, redirect, url_for, flash
 
+import datetime
+
+def format_date_joined(date):
+    return date.strftime("%B, %Y")
 
 ###
 # Routing for your application.
@@ -28,6 +32,20 @@ def send_text_file(file_name):
     file_dot_text = file_name + '.txt'
     return app.send_static_file(file_dot_text)
 
+@app.route('/profile')
+def profile():
+    user = {
+        'full_name': 'Stephan Mingoes',
+        'username': 'stephanmingoes',
+        'location': 'Redmond, Washington',
+        'join_date': format_date_joined(datetime.date(2024, 5, 13)),
+        'bio': 'I am deeply passionate about using technology to solve real-world problems and have a strong foundation in Computer Science principles, including Data Structures, algorithms, and Software Design.',
+        'posts': 1,
+        'following': 0,
+        'followers': '8000'
+    }
+    return render_template('profile.html', user=user)
+    
 
 @app.after_request
 def add_header(response):
